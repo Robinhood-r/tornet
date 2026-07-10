@@ -1,0 +1,23 @@
+
+import urllib.parse
+
+
+shortners : [ ]
+
+# scanning the url for unusual findings
+
+def url_scan(url):
+    
+    findings = []
+    
+    if url.startswith("http://"):
+        findings.append("MEDIUM: It's missing  SSL")
+
+
+
+
+    return findings
+
+
+if __name__ == "__main__":
+    print(url_scan("http://test.com"))
