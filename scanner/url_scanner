@@ -1,8 +1,15 @@
-
 import urllib.parse
 
+# A list that contain the most commom shorteners to be checked 
+shorteners = ["bit.ly", "tinyurl.com", "t.co", "goo.gl"]
 
-shortners : [ ]
+# This dictionary maps fake characters to real characters to check for the use of lookalike characters in the URL
+lookalikes = {
+    "1": "l",
+    "0": "o",
+    "3": "e",
+    "rn": "m"
+}
 
 # scanning the url for unusual findings
 
@@ -11,13 +18,20 @@ def url_scan(url):
     findings = []
     
     if url.startswith("http://"):
-        findings.append("MEDIUM: It's missing  SSL")
+        findings.append("MEDIUM: it's missing  SSL")
 
+    
+    for i in shorteners:
+        if i in url:
+            findings.append("MEDIUM: the URL is using a shortener. It's hiding the real destination")
+            break
 
-
+    for fake, real in lookalikes.items():
+     if fake in url:
+        findings.append(f"MEDIUM: '{fake}' may be impersonating '{real}'")
 
     return findings
 
 # Testing the repo
 if __name__ == "__main__":
-    print(url_scan("http://test.com"))
+    print(url_scan("https://paypa1.com"))
