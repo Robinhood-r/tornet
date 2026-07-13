@@ -1,4 +1,5 @@
 import urllib.parse
+import re
 
 # A list that contain the most commom shorteners to be checked 
 shorteners = ["bit.ly", "tinyurl.com", "t.co", "goo.gl"]
@@ -11,27 +12,44 @@ lookalikes = {
     "rn": "m"
 }
 
+# definig the patterin for IP recognation with regex
+ip_pattern = re.compile(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}')
+
 # scanning the url for unusual findings
 
 def url_scan(url):
     
+    is_ip = False
+
+    # a list to append the findings and displaying it as a message
     findings = []
     
+    # checking  for SSL
     if url.startswith("http://"):
-        findings.append("MEDIUM: it's missing  SSL")
+        findings.append("HIGH: it's missing  SSL")
 
-    
+    # Checking for shorteners
     for i in shorteners:
         if i in url:
             findings.append("MEDIUM: the URL is using a shortener. It's hiding the real destination")
             break
+    
+    
+    # Checking for raw IP use
+    if ip_pattern.search(url):
+        findings.append("HIGH: URL uses a raw IP address instead of a domain name")
+        is_ip = True
 
-    for fake, real in lookalikes.items():
-     if fake in url:
-        findings.append(f"MEDIUM: '{fake}' may be impersonating '{real}'")
+    # Checks to see if it has passed the raw IP test, the proceeds to look for lookalikes
+    if not is_ip:
+        for fake, real in lookalikes.items():
+            if fake in url:
+                findings.append(f"MEDIUM: '{fake}' may be impersonating '{real}'")
+
 
     return findings
 
 # Testing the repo
 if __name__ == "__main__":
+    print(url_scan("http://192.168.1.1/login"))
     print(url_scan("https://paypa1.com"))
