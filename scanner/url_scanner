@@ -4,6 +4,9 @@ import re
 # A list that contain the most commom shorteners to be checked 
 shorteners = ["bit.ly", "tinyurl.com", "t.co", "goo.gl"]
 
+# A list of suspicious key words to be checked
+suspicious_words = ["login", "verify", "secure", "account", "urgent"]
+
 # This dictionary maps fake characters to real characters to check for the use of lookalike characters in the URL
 lookalikes = {
     "1": "l",
@@ -33,6 +36,12 @@ def url_scan(url):
         if i in url:
             findings.append("MEDIUM: the URL is using a shortener. It's hiding the real destination")
             break
+
+    # Chekcing for suspicious words
+    for i in suspicious_words:
+        if i in url:
+            findings.append("LOW: suspecious key words detected. Double check the sender before opeening the URL")
+            break
     
     
     # Checking for raw IP use
@@ -51,5 +60,5 @@ def url_scan(url):
 
 # Testing the repo
 if __name__ == "__main__":
-    print(url_scan("http://192.168.1.1/login"))
-    print(url_scan("https://paypa1.com"))
+    #print(url_scan("http://192.168.1.1/login"))
+    print(url_scan("https://paypal.com/login"))
