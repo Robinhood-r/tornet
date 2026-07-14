@@ -37,10 +37,10 @@ def url_scan(url):
             findings.append("MEDIUM: the URL is using a shortener. It's hiding the real destination")
             break
 
-    # Chekcing for suspicious words
+    # Checking for suspicious words
     for i in suspicious_words:
         if i in url:
-            findings.append("LOW: suspecious key words detected. Double check the sender before opeening the URL")
+            findings.append("LOW: suspicious key words detected. Double check the sender before opening the URL")
             break
     
     
