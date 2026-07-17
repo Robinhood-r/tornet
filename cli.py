@@ -9,9 +9,15 @@ parser.add_argument("--email", help="Email to scan")
 args = parser.parse_args()
 
 if args.url:
+    print(f"\nTornet - Scanning URL: {args.url}")
+    print("─" * 40)
     results = url_scan(args.url)
-    print(results)
+    for i in results:
+        print(f"{i}")
 
 if args.email:
+    print(f"\nTornet - Scanning Email: {args.email}")
+    print("─" * 40)
     results = email_scan(args.email)
-    print(results)
+    for i in results:
+        print(f"{i}")
