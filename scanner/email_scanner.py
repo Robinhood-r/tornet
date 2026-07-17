@@ -40,7 +40,7 @@ def email_scan(email):
     # Checking the domain and local part for suspicious keywords
     for i in suspicious_words:
          if i in domain or i in parts[0]:
-              findings.append("LOW: suspicious word(s) were found in the email. procceed with caution")
+              findings.append("LOW: suspicious word(s) were found in the email. proceed with caution")
               break
 
     return findings
