@@ -10,6 +10,9 @@ lookalikes = {
     "rn": "m"
 }
 
+# A list of suspicious key words to be checked
+suspicious_words = ["login", "verify", "secure", "account", "urgent"]
+
 # mail scanner function for emails
 def email_scan(email):
 
@@ -34,10 +37,15 @@ def email_scan(email):
                 findings.append(f"MEDIUM: '{fake}' may be impersonating '{real}'")
                 break
 
+    # Checking the domain and local part for suspicious keywords
+    for i in suspicious_words:
+         if i in domain or i in parts[0]:
+              findings.append("LOW: suspicious word(s) were found in the email. procceed with caution")
+              break
 
     return findings
 
 
-
+# Testing the code
 if __name__ == "__main__":
-    print(email_scan("support@paypa1.com"))
+    print(email_scan("urgent-verify@gmail.com"))
