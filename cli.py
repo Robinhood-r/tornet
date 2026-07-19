@@ -14,7 +14,7 @@ def print_banner():
     ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗   ██║   
     ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   
 {RESET}
-{YELLOW}Phishing Scanner | by Danial R{RESET}
+{YELLOW}Phishing Scanner | by Danial{RESET}
     """)
 
 # Defining different colors for different alerts
