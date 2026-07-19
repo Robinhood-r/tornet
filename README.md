@@ -12,7 +12,7 @@ The **URL scanner** checks the entire URL for: use of HTTP, use of shorteners, s
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/???/tornet
+   git clone https://github.com/Robinhood-r/tornet
 
 2. Navigate to the project folder:
    cd tornet
