@@ -35,7 +35,7 @@ To scan an email:
 
 ## Example output
 
-![Tornet Screenshot](screenshot.png)
+![Tornet Screenshot](Screenshot.png)
 
 
 ## Author
