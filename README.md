@@ -9,5 +9,23 @@ The **email scanner** checks the entire email for suspicious domains, keywords, 
 
 The **URL scanner** checks the entire URL for: use of HTTP, use of shorteners, suspicious keywords, IP addresses, and lookalike characters . It categorizes them into LOW, MEDIUM, and HIGH alert based on the words used in the URL
 
-## How to run
-python3 scanner/url_scanner.py
+## Installation
+
+1. Clone the repository:
+   git clone https://github.com/???/tornet
+
+2. Navigate to the project folder:
+   cd tornet
+
+3. No dependencies required — Tornet uses Python built-in libraries only
+
+## Usage
+
+To scan a URL:
+   python3 cli.py --url https://suspicious-site.tk
+
+To scan an email:
+   python3 cli.py --email urgent@paypal.tk
+
+## Author
+Danial R — Cybersecurity and bug bounty hunter enthusiastic 
