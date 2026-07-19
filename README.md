@@ -32,5 +32,11 @@ To scan an email:
    ```
    python3 cli.py --email urgent@paypal.tk
    ```
+
+## Example output
+
+![Tornet Screenshot](screenshot.png)
+
+
 ## Author
 Danial R — Cybersecurity enthusiast and aspiring bug bounty hunter
