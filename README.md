@@ -1,6 +1,6 @@
 # Tornet
 
-A phishing scanner for URLs and emails.
+They made a net to phish you in? Tear it with Tornet
 
 ## What it does
 **Tornet** is comprised of 2 main components: Email scanner and URL scanner.
@@ -28,4 +28,4 @@ To scan an email:
    python3 cli.py --email urgent@paypal.tk
 
 ## Author
-Danial R — Cybersecurity and bug bounty hunter enthusiastic 
+Danial R — Cybersecurity enthusiast and aspiring bug bounty hunter
