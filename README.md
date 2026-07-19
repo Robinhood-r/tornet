@@ -12,7 +12,9 @@ The **URL scanner** checks the entire URL for: use of HTTP, use of shorteners, s
 ## Installation
 
 1. Clone the repository:
+   ```
    git clone https://github.com/Robinhood-r/tornet
+   ```
 
 2. Navigate to the project folder:
    cd tornet
@@ -22,10 +24,13 @@ The **URL scanner** checks the entire URL for: use of HTTP, use of shorteners, s
 ## Usage
 
 To scan a URL:
+   ```
    python3 cli.py --url https://suspicious-site.tk
-
+   ```
+   
 To scan an email:
+   ```
    python3 cli.py --email urgent@paypal.tk
-
+   ```
 ## Author
 Danial R — Cybersecurity enthusiast and aspiring bug bounty hunter
